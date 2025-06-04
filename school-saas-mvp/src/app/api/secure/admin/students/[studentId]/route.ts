@@ -10,7 +10,7 @@ import { getClassById } from '@/lib/data/classes';
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { studentId: string } }
+  { params }: any
 ) {
   try {
     const adminRole = request.headers.get('x-user-role') as UserRole;
@@ -73,7 +73,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { studentId: string } }
+  { params }: any
 ) {
   try {
     const adminRole = request.headers.get('x-user-role') as UserRole;

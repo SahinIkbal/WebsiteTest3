@@ -9,7 +9,7 @@ import { getUserById } from '@/lib/data/users'; // To validate teacher for updat
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { classId: string } }
+  { params }: any
 ) {
   try {
     const adminRole = request.headers.get('x-user-role');
@@ -73,7 +73,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { classId: string } }
+  { params }: any
 ) {
   try {
     const adminRole = request.headers.get('x-user-role');

@@ -38,10 +38,10 @@ interface WithAuthProps {
 }
 
 export default function withAuth<P extends object>(
-  WrappedComponent: ComponentType<P>,
+  WrappedComponent: ComponentType<P & { currentUser: AuthTokenPayload }>,
   options?: WithAuthProps
 ) {
-  const ComponentWithAuth = (props: P) => {
+  const ComponentWithAuth = (props: Omit<P, 'currentUser'>) => {
     const router = useRouter();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState<AuthTokenPayload | null>(null);
@@ -70,7 +70,7 @@ export default function withAuth<P extends object>(
     }
 
     // Pass down the user object to the wrapped component if needed
-    return <WrappedComponent {...props} currentUser={user} />;
+    return <WrappedComponent {...(props as P)} currentUser={user} />;
   };
   return ComponentWithAuth;
 }

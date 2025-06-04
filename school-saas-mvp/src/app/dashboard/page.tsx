@@ -60,4 +60,8 @@ function DashboardPageContent({ currentUser }: { currentUser: AuthTokenPayload }
 // Wrap the dashboard page content with withAuth
 // No specific roles needed for generic dashboard, just authentication.
 // If dashboard was admin-only, it would be: withAuth(DashboardPageContent, { allowedRoles: ['admin'] });
-export default withAuth(DashboardPageContent);
+const ProtectedDashboardPage = withAuth(DashboardPageContent);
+
+export default function Page() {
+  return <ProtectedDashboardPage />;
+}
