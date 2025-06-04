@@ -2,7 +2,7 @@
 
 import { useEffect, useState, ComponentType } from 'react';
 import { useRouter } from 'next/navigation';
-import { verifyToken, AuthTokenPayload } from '@/lib/auth'; // Assuming verifyToken can run client-side if needed, or use a fetch to an API route
+import { AuthTokenPayload } from '@/lib/auth'; // Assuming verifyToken can run client-side if needed, or use a fetch to an API route
 
 // Helper function to get token and user data from localStorage
 const getClientSideAuth = (): { token: string | null; user: AuthTokenPayload | null } => {
