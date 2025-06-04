@@ -268,4 +268,8 @@ function ClassManagementPage({ currentUser }: ClassManagementPageProps) {
   );
 }
 
-export default withAuth(ClassManagementPage, { allowedRoles: ['admin'] });
+const ProtectedClassManagementPage = withAuth(ClassManagementPage, { allowedRoles: ['admin'] });
+
+export default function Page() {
+  return <ProtectedClassManagementPage />;
+}

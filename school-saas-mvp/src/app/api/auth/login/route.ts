@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: 'Invalid credentials' }, { status: 401 });
     }
 
-    const token = generateToken(user);
+    const token = await generateToken(user);
 
     const userPayload: AuthTokenPayload = {
         userId: user.id,

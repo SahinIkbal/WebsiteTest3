@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 import { verifyToken, AuthTokenPayload } from '@/lib/auth'; // Use your actual path
 
 // This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Define paths that require authentication
@@ -20,7 +20,7 @@ export function middleware(request: NextRequest) {
       return NextResponse.json({ message: 'Authentication token missing' }, { status: 401 });
     }
 
-    const decodedPayload = verifyToken(token); // Your JWT verification function
+    const decodedPayload = await verifyToken(token); // Your JWT verification function
 
     if (!decodedPayload) {
       return NextResponse.json({ message: 'Invalid or expired token' }, { status: 401 });

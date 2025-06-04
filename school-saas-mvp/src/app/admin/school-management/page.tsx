@@ -207,4 +207,8 @@ function SchoolManagementPage({ currentUser }: SchoolManagementPageProps) {
 }
 
 // Wrap the component with withAuth, requiring 'admin' role
-export default withAuth(SchoolManagementPage, { allowedRoles: ['admin'] });
+const ProtectedSchoolManagementPage = withAuth(SchoolManagementPage, { allowedRoles: ['admin'] });
+
+export default function Page() {
+  return <ProtectedSchoolManagementPage />;
+}

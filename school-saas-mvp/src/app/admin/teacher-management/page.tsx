@@ -255,4 +255,8 @@ function TeacherManagementPage({ currentUser }: TeacherManagementPageProps) {
   );
 }
 
-export default withAuth(TeacherManagementPage, { allowedRoles: ['admin'] });
+const ProtectedTeacherManagementPage = withAuth(TeacherManagementPage, { allowedRoles: ['admin'] });
+
+export default function Page() {
+  return <ProtectedTeacherManagementPage />;
+}

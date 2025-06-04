@@ -9,7 +9,7 @@ import {
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { teacherId: string } }
+  { params }: any
 ) {
   try {
     const adminRole = request.headers.get('x-user-role') as UserRole | null;
@@ -60,7 +60,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { teacherId: string } }
+  { params }: any
 ) {
   try {
     const adminRole = request.headers.get('x-user-role') as UserRole | null;
