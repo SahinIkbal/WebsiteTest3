@@ -14,29 +14,27 @@ export default function Login() {
   };
 
   return (
-    <main className="p-6">
-      <h1 className="text-xl font-bold mb-4">Login</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2 max-w-sm">
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          className="border p-2"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          className="border p-2"
-          required
-        />
-        <button type="submit" className="bg-blue-600 text-white p-2 rounded">
-          Sign In
-        </button>
-      </form>
+    <main className="login-container">
+      <div className="login-box">
+        <h1 className="login-title">Login</h1>
+        <form onSubmit={handleSubmit} className="login-form">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
     </main>
   );
 }
